@@ -2,17 +2,18 @@
 <html lang="en-US">
 <html>
     <head>
-        <title>Recipe Book</title>
+        <meta charset="UTF-8">
+        <title>Recipe List</title>
     </head>
     <body>
-        <h1>Recipe Book</h1>
+        <h1>Recipe List</h1>
+        <h2>Recipes:</h2>
         <ul>
-            {% for recipe in recipes %}
-                <li>
-                    <h2>{{ recipe.name }}</h2>
-                    <br><a href="{{ recipe.link }}">View Recipe</a>
-                </li>
-            {% endfor %}
+            {% for recipe in object_list %}
+            <li>
+                <a href="{% url 'ledger:recipe_detail' pk=recipe.pk %}">{{ recipe.name }}</a>
+            </li>
+        {% endfor %}
         </ul>
     </body> 
 </html>
